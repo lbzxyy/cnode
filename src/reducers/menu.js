@@ -21,6 +21,11 @@ export default (state = MENU_STATE, action) => {
         ...state,
         isShowDrawer: false
       }
+    case 'changeMenuTitle':
+      return {
+        ...state,
+        currentCata: action.currentCata
+      }
     default:
       return { ...state }
   }

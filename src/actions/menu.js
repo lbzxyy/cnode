@@ -14,3 +14,12 @@ export function hideDrawer() {
     })
   }
 }
+// 切换菜单栏项， 显示在标题头部
+export function changeMenuTitle(currentCata) {
+  return dispatch => {
+    dispatch({
+      type: 'changeMenuTitle',
+      currentCata
+    })
+  }
+}
