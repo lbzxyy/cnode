@@ -11,7 +11,6 @@ import './menu.scss'
 
 
 function Menu(props) {
-  console.log(props,'props')
   const {
     isShowDrawer,
     cataData,
@@ -19,7 +18,6 @@ function Menu(props) {
     showDrawer,
     hideDrawer,
     changeMenuTitle,
-    dispatch,
   } = props
 // const [show, setShow] = useState(false)
   const Data = cataData.map(item => item.value)

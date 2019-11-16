@@ -2,6 +2,7 @@ import Taro, { Component } from '@tarojs/taro'
 import { View, Button, Text } from '@tarojs/components'
 import { AtButton } from 'taro-ui'
 import Menu from '../../components/menu/menu'
+import TopicList from '../../components/topicList/topicList'
 import './index.scss'
 
 class Index extends Component {
@@ -24,6 +25,7 @@ class Index extends Component {
     return (
       <View className='index'>
         <Menu />
+        <TopicList />
       </View>
     )
   }
