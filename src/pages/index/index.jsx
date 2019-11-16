@@ -1,8 +1,8 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Button, Text } from '@tarojs/components'
-import './index.scss'
 import { AtButton } from 'taro-ui'
 import Menu from '../../components/menu/menu'
+import './index.scss'
 
 class Index extends Component {
 

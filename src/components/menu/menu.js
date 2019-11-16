@@ -1,14 +1,28 @@
 import Taro, { useState } from '@tarojs/taro'
 import { View , Text} from '@tarojs/components'
 import { AtDrawer, AtIcon } from 'taro-ui'
+import { connect } from '@tarojs/redux'
+import { showDrawer, hideDrawer} from '../../actions/menu'
 import './menu.scss'
-function Menu() {
-  
-  const [show, setShow] = useState(false)
-  
 
+
+function Menu(props) {
+  console.log(props,'props')
+  const {
+    isShowDrawer,
+    showDrawer,
+    hideDrawer,
+    dispatch,
+  } = props
+// const [show, setShow] = useState(false)
+  
+  // 打开菜单栏
   const openDrawer = () => {
-    setShow(true)
+   showDrawer()
+  }
+  // 关闭菜单栏
+  const onClose = () => {
+    hideDrawer()
   }
 
     return (
@@ -27,9 +41,9 @@ function Menu() {
         <View>
           <AtDrawer 
             style='position:absolute;'
-            show={ show } 
+            show={ isShowDrawer } 
             mask 
-            // onClose={this.onClose.bind(this)} 
+            onClose={onClose} 
             items={['菜单1', '菜单2']}
           ></AtDrawer>
         </View>
@@ -38,4 +52,17 @@ function Menu() {
     )
 }
 
-export default Menu
+export default connect(
+  
+    ({menu}) => {
+      return menu
+    }
+  ,(dispatch) => ({
+    showDrawer() {
+      dispatch(showDrawer())
+    },
+    hideDrawer() {
+      dispatch(hideDrawer())
+    }
+  })
+)(Menu)
