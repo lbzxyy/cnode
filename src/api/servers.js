@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 import HTTP from "./http"
 
-export const gettopics = (params) => {
+export const gettopicsData = (params) => {
   return HTTP.get('/topics', params)
 }

@@ -32,7 +32,6 @@ function Menu(props) {
   }
   // 切换菜单栏 显示当前选中菜单项
   const changeTitle = (index) => {
-    console.log(index,'index')
     const currentData = cataData[index]
     changeMenuTitle(currentData)
   }

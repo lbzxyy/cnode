@@ -1,9 +1,11 @@
-import { gettopics } from '../api/servers'
+import { gettopicsData } from '../api/servers'
 // 获取第一页列表数据
-export async function  gettopics(params) {
-  let {data, success} = await gettopics(params)
-  // console.log(result,'result1111111111')
-  return (dispatch) => {
+export  function  gettopics(params) {
+  return async(dispatch) => {
+    let {data, success} = await gettopicsData(params)
+
+    console.log(data,'data9999999')
+
     if(success) {
       dispatch({
         type: 'gettopics',

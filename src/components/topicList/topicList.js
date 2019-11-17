@@ -1,12 +1,17 @@
 import Taro, { useEffect } from '@tarojs/taro'
-import { View } from '@tarojs/components'
-import { gettopics } from '../../api/servers'
+import { View , ScrollView} from '@tarojs/components'
+import Topic from './topic'
 import { connect } from '@tarojs/redux'
+import { gettopics } from '../../actions/topic'
 
 function TopicList(props) {
   console.log(props,'props')
   const {
     menu, // menu 的state
+    gettopics,
+    topic: {
+      list
+    }
   } = props
   useEffect( async() => {
     await gettopics({
@@ -17,7 +22,13 @@ function TopicList(props) {
   },[])
     return (
       <View >
-        topicList
+        <ScrollView>
+          {
+            list.map((item )=><Topic item={item} />)
+
+          }
+
+        </ScrollView>
       </View>
     )
 }
