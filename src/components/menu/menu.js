@@ -31,9 +31,10 @@ function Menu(props) {
     hideDrawer()
   }
   // 切换菜单栏 显示当前选中菜单项
-  const changeTitle = (index) => {
+  const changeTitle = async(index) => {
+    console.log(wx,'wx')
     const currentData = cataData[index]
-    changeMenuTitle(currentData)
+    await changeMenuTitle(currentData)
   }
 
     return (

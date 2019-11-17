@@ -12,6 +12,12 @@ export default (state = TOPIC_STATE, action) => {
       ...state,
       list: action.list
     }
+    case 'appendTopicList':
+    return {
+      ...state,
+      list: state.list.concat(action.list),
+      page: action.page
+    }
     default:
       return {
         ...state

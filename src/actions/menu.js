@@ -1,3 +1,4 @@
+import {gettopics} from './topic'
 // 显示左侧菜单
 export function showDrawer() {
   return (dispatch) => {
@@ -21,5 +22,10 @@ export function changeMenuTitle(currentCata) {
       type: 'changeMenuTitle',
       currentCata
     })
+    dispatch(gettopics({
+      page: 1,
+      limit: 20,
+      tab: currentCata.key
+    }))
   }
 }
